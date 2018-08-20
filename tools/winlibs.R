@@ -3,6 +3,7 @@ VERSION <- commandArgs(TRUE)
 print(paste("current working directory",getwd()))
 if(!file.exists(sprintf("../windows/openssl-%s/include/openssl/ssl.h", VERSION))){
   if(getRversion() < "3.3.0") setInternet2()
+  print(paste("downloading to...",getwd()))
   download.file(sprintf("https://github.com/rwinlib/openssl/archive/v%s.zip", VERSION),
                 "lib.zip", quiet = TRUE)
   dir.create("../windows", showWarnings = FALSE)
